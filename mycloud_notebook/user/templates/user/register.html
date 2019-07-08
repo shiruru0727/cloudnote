@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <style>
+        span{
+            color:red;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/user/reg" method="post">
+        {% csrf_token %}
+        <p>
+            用户名:<input type="text" name="username" placeholder="请输入用户名">
+            <span>{{ username_error }}</span>
+        </p>
+        <p>
+            密码:<input type="text" name="password1" placeholder="请输入密码">
+            <span>{{ password1_error }}</span>
+        </p>
+        <p>
+            密码:<input type="text" name="password2" placeholder="请再次输入密码">
+            <span>{{ password2_error }}</span>
+        </p>
+        <input type="submit" value="注册">
+    </form>
+</body>
+</html>

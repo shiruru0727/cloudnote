@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    {# 判断是否有user来确定是否已经登录 #}
+    {% if request.session and request.session.userinfo %}
+    欢迎:{{ request.session.userinfo.username }}
+    <a href="/user/logout">注销</a>
+    <p>
+        <a href="/note/showall">查看所有笔记</a>
+    </p>
+    {% else %}
+    <a href="/user/login">登录</a>
+    <a href="/user/reg">注册</a>
+    {% endif %}
+</body>
+</html>
